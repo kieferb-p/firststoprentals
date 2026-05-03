@@ -1,0 +1,102 @@
+  ---
+import Layout from '../../layouts/Layout.astro';
+import PageBanner from '../../components/PageBanner.astro';
+---
+
+<Layout>
+       <div class="bg-[var(--bg)]">
+          <PageBanner title="Delivery Rates" subtitle="We deliver your equipment directly to your job site." />
+
+       <div class="container mx-auto max-w-6xl py-10">
+          <div class="max-w-3xl mx-auto mb-10">
+             <div class="bg-[var(--section-dark)] rounded-[10px] p-5 border border-[var(--border)]">
+               <h2 class="font-bold uppercase tracking-wide mb-4">Delivery Rate Structure</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                 <div>
+                   <h3 class="text-[var(--text-h)] font-semibold mb-2">Small Equipment</h3>
+                  <p class="text-[var(--text)]">$60 up to 15km. $1.60 per extra km.</p>
+                 </div>
+                 <div>
+                   <h3 class="text-[var(--text-h)] font-semibold mb-2">Large Equipment / Scaffold</h3>
+                  <p class="text-[var(--text)]">$85 up to 15km. $1.60 per extra km.</p>
+                </div>
+              </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-[var(--border)] text-[var(--text)] text-sm">Deliveries available Mon-Fri, 8am to 5pm only.</div>
+           </div>
+
+           <div class="max-w-3xl mx-auto">
+              <h2 class="font-bold uppercase tracking-wide mb-2">Local Delivery Estimates</h2>
+              <p class="text-[var(--text)] text-sm mb-6">Approximate costs from our Kemptville location. Rates are per trip (one way).</p>
+
+              <div id="delivery-locations" class="space-y-2">
+              </div>
+          </div>
+
+         <div class="max-w-3xl mx-auto mt-10">
+            <div class="bg-[var(--section-medium)] rounded-[10px] p-5 border border-[var(--border)]">
+              <h3 class="text-[var(--text-h)] font-bold mb-2">Note</h3>
+               <p class="text-[var(--text)] text-sm">These are estimated rates based on distance from our Kemptville facility. Actual charges may vary depending on the specific job site address and equipment type. Contact us for an exact quote.</p>
+            </div>
+         </div>
+       </div>
+      </div>
+</Layout>
+
+<script is:inline>
+   (function() {
+    var locations = [
+         { town: 'Osgoode', distance: 15, small: 60, large: 85 },
+         { town: 'Manotick', distance: 17, small: 62, large: 87 },
+         { town: 'North Gower', distance: 25, small: 76, large: 101 },
+         { town: 'Cardinal', distance: 40, small: 94, large: 119 },
+         { town: 'Spencerville', distance: 35, small: 88, large: 113 },
+         { town: 'Smiths Falls', distance: 28, small: 80, large: 105 },
+         { town: 'Russell', distance: 25, small: 76, large: 101 },
+         { town: 'Winchester', distance: 45, small: 101, large: 126 },
+      ];
+
+     var container = document.getElementById('delivery-locations');
+     if (!container) return;
+
+     locations.forEach(function(loc, idx) {
+        var expanded = idx === 0 ? '' : 'hidden';
+        var html = '<div class="delivery-card rounded-[10px] border border-[var(--border)] bg-[var(--section-medium)] overflow-hidden">' +
+           '<button class="delivery-toggle w-full flex justify-between items-center p-4 text-left">' +
+              '<div><span class="text-[var(--text-h)] font-bold text-lg capitalize">' + loc.town.toLowerCase() + '</span><span class="text-[var(--text)] text-sm ml-3">' + loc.distance + ' km away</span></div>' +
+              '<span class="text-[var(--text-h)] text-2xl shrink-0 delivery-icon">' + (idx === 0 ? '\u2212' : '+') + '</span>' +
+            '</button>' +
+            '<div class="delivery-card-content px-4 pb-4 pt-1 ' + expanded + '">' +
+              '<div class="grid grid-cols-2 gap-4 text-sm">' +
+                '<div class="bg-[var(--section-dark)] rounded-[10px] p-3">' +
+                  '<div class="text-[var(--text-h)] font-semibold mb-1">Small Equipment</div>' +
+                  '<div class="text-[var(--text-h)] text-xl font-bold">$' + loc.small + '</div>' +
+                    '<div class="text-[var(--text)] text-xs">one way</div>' +
+                  '</div>' +
+                  '<div class="bg-[var(--section-dark)] rounded-[10px] p-3">' +
+                  '<div class="text-[var(--text-h)] font-semibold mb-1">Large Equipment / Scaffold</div>' +
+                  '<div class="text-[var(--text-h)] text-xl font-bold">$' + loc.large + '</div>' +
+                  '<div class="text-[var(--text)] text-xs">one way</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+         container.insertAdjacentHTML('beforeend', html);
+       });
+
+     document.querySelectorAll('.delivery-toggle').forEach(function(btn) {
+       btn.addEventListener('click', function() {
+         var card = btn.parentElement;
+         var content = card.querySelector('.delivery-card-content');
+         var icon = btn.querySelector('.delivery-icon');
+         if (content.classList.contains('hidden')) {
+           content.classList.remove('hidden');
+           icon.textContent = '\u2212';
+          } else {
+           content.classList.add('hidden');
+           icon.textContent = '+';
+          }
+        });
+      });
+    })();
+</script>

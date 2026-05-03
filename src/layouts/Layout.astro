@@ -1,0 +1,22 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const { title = 'First Stop Tool & Equipment Rentals', description = 'Tool and equipment rentals in Kemptville, Ontario.' } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+
+    <title>{title}</title>
+    
+  </head>
+  <body>
+    <Header currentPath={Astro.url.pathname} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

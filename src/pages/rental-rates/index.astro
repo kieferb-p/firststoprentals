@@ -1,0 +1,165 @@
+  ---
+import Layout from '../../layouts/Layout.astro';
+import PageBanner from '../../components/PageBanner.astro';
+---
+
+<Layout>
+      <div class="bg-[var(--bg)]">
+          <PageBanner title="Rental Rates" subtitle="Transparent pricing with no hidden fees." />
+
+       <div class="container py-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+             <!-- Base Tier Rates -->
+             <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+               <div class="p-5">
+                  <h3 class="font-bold uppercase tracking-wide mb-4">Base Tier Rates</h3>
+                  <p class="text-[var(--text)] text-xs mb-4">Applied from longest to shortest duration.</p>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Month</span><span class="text-[var(--text-h)] font-semibold text-right">12 billed days (28 calendar days)</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Week</span><span class="text-[var(--text-h)] font-semibold text-right">4 billed days (7 calendar days)</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Day</span><span class="text-[var(--text-h)] font-semibold text-right">1 billed day (24 hours)</span></div>
+                  <div class="mt-4 bg-[var(--section-dark)] rounded-[10px] p-4 text-[var(--text)] text-sm"><strong>Scaffolding exception:</strong> Month = 9 billed days (instead of 12), covers 28 calendar days.</div>
+                </div>
+             </div>
+
+             <!-- Hourly Rates -->
+              <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                <div class="p-5">
+                  <h3 class="font-bold uppercase tracking-wide mb-4">Hourly Rates</h3>
+                  <p class="text-[var(--text)] text-xs mb-4">Available on most items during business hours, calculated as % of day rate.</p>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">3 hours</span><span class="text-[var(--text-h)] font-semibold text-right">55% of day</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">4 hours</span><span class="text-[var(--text-h)] font-semibold text-right">65% of day</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">5 hours</span><span class="text-[var(--text-h)] font-semibold text-right">75% of day</span></div>
+                  <div class="mt-4 bg-[var(--section-dark)] rounded-[10px] p-4 text-[var(--text)] text-sm"><strong>Over 5 hours:</strong> Billed as a full day with no exceptions.</div>
+                </div>
+              </div>
+
+             <!-- Overnight -->
+              <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                <div class="p-5">
+                  <h3 class="font-bold uppercase tracking-wide mb-4">Overnight Rate</h3>
+                  <p class="text-[var(--text)] text-xs mb-4">Monday through Thursday, pickup at 4pm.</p>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Return by 9am</span><span class="text-[var(--text-h)] font-semibold text-right">5-hr rate (75% of day)</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Past 9am</span><span class="text-[var(--text-h)] font-semibold text-right">Full day charge</span></div>
+                  <div class="mt-4 bg-[var(--section-dark)] rounded-[10px] p-4 text-[var(--text)] text-sm"><strong>Important:</strong> Overnight rentals do NOT accumulate toward monthly discounts.</div>
+                </div>
+              </div>
+
+              <!-- Weekend Specials -->
+              <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                <div class="p-5">
+                  <h3 class="font-bold uppercase tracking-wide mb-4">Weekend Specials</h3>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Fri after 4pm &#8594; Mon 9am</span><span class="text-[var(--text-h)] font-semibold text-right">1.5 billed days</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Sat before 3pm &#8594; Mon 9am</span><span class="text-[var(--text-h)] font-semibold text-right">1.5 billed days</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Sat after 3pm &#8594; Mon 9am</span><span class="text-[var(--text-h)] font-semibold text-right">1.0 billed day</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Fri after 4pm &#8594; Tue 9am</span><span class="text-[var(--text-h)] font-semibold text-right">2.0 billed days</span></div>
+                </div>
+              </div>
+
+              <!-- Engine Hour Equipment -->
+              <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                <div class="p-5">
+                  <h3 class="font-bold uppercase tracking-wide mb-4">Engine Hour Equipment</h3>
+                  <p class="text-[var(--text)] text-xs mb-4">Backhoes, excavators, skid steers, and similar machinery.</p>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Max hours per billed day</span><span class="text-[var(--text-h)] font-semibold text-right">8 hours</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Hours pool</span><span class="text-[var(--text-h)] font-semibold text-right">3 billed days = 24 hours allowed</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Overage surcharge</span><span class="text-[var(--text-h)] font-semibold text-right">Day rate &#247; 8 per excess hour</span></div>
+                  <div class="mt-4 bg-[var(--section-dark)] rounded-[10px] p-4 text-[var(--text)] text-sm"><strong>Example:</strong> A 3-day rental pools to 24 engine hours. The 25th hour costs (day rate &#247; 8).</div>
+                </div>
+              </div>
+
+              <!-- Special Equipment Rules -->
+              <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                <div class="p-5">
+                  <h3 class="font-bold uppercase tracking-wide mb-4">Special Equipment Rules</h3>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Woodchippers min</span><span class="text-[var(--text-h)] font-semibold text-right">5-hr rate (75%), no engine hours</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Scaffolding pricing</span><span class="text-[var(--text-h)] font-semibold text-right">Per piece, per week</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Scaffolding month</span><span class="text-[var(--text-h)] font-semibold text-right">9 billed weeks (not 12)</span></div>
+                </div>
+              </div>
+
+              <!-- Delivery Rates -->
+              <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                <div class="p-5">
+                  <h3 class="font-bold uppercase tracking-wide mb-4">Delivery Rates</h3>
+                  <p class="text-[var(--text)] text-xs mb-4">Deliveries Mon-Fri 8am to 5pm only.</p>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Small equipment</span><span class="text-[var(--text-h)] font-semibold text-right">$60 (up to 15km)</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Small equipment overage</span><span class="text-[var(--text-h)] font-semibold text-right">$1.60 per extra km</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Large equipment / scaffold</span><span class="text-[var(--text-h)] font-semibold text-right">$85 (up to 15km)</span></div>
+                  <div class="flex justify-between items-baseline py-2 border-b border-[var(--border)]"><span class="text-[var(--text)]">Large equipment overage</span><span class="text-[var(--text-h)] font-semibold text-right">$1.60 per extra km</span></div>
+                  <div class="mt-4">
+                    <a href="/delivery" class="text-[var(--text-h)] transition text-sm underline">See delivery estimates by location &rarr;</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pricing FAQ Link -->
+              <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                <div class="p-5">
+                  <h3 class="font-bold uppercase tracking-wide mb-4">Still Have Questions?</h3>
+                  <div class="text-[var(--text)] flex flex-col gap-2 mb-4">
+                    <p>Can't find what you're looking for?</p>
+                    <p>Drop us a line and we'll be happy to clarify any questions about our rates or billing policies.</p>
+                  </div>
+                  <a href="/contact" class="text-[var(--text-h)] transition text-sm underline">Contact Us &rarr;</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real-World Examples -->
+            <div class="max-w-5xl mx-auto mt-10">
+               <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                  <div class="p-5">
+                     <h3 class="font-bold uppercase tracking-wide mb-4">Real-World Examples</h3>
+                     <div id="examples-tabs" class="flex flex-wrap gap-3 mb-5">
+                        <button class="example-tab px-4 py-2 rounded-full text-sm font-semibold transition bg-[var(--text-h)] text-[var(--bg)]" data-example="0">36 days</button>
+                        <button class="example-tab px-4 py-2 rounded-full text-sm font-semibold transition bg-[var(--section-medium)] text-[var(--text)] hover:text-[var(--text-h)]" data-example="1">Month + weekend</button>
+                        <button class="example-tab px-4 py-2 rounded-full text-sm font-semibold transition bg-[var(--section-medium)] text-[var(--text)] hover:text-[var(--text-h)]" data-example="2">Month + long weekend</button>
+                     </div>
+                     <div id="example-content" class="bg-[var(--section-dark)] rounded-[10px] p-5 border border-[var(--border)]">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+</Layout>
+
+<script is:inline>
+   (function() {
+    var examples = [
+        { label: '36 days', breakdown: '1 month (12) + 1 week (4) + 1 day (1)', total: '17 billed days' },
+        { label: 'Month + weekend', breakdown: 'Month (12) + Weekend special (1.5)', total: '13.5 billed days' },
+        { label: 'Month + long weekend', breakdown: 'Month (12) + Long weekend (2.0)', total: '14 billed days' },
+     ];
+
+    function renderExample(idx) {
+       var ex = examples[idx];
+       var content = document.getElementById('example-content');
+       if (content) {
+          content.innerHTML =
+            '<div class="text-[var(--text)] text-sm mb-2">Scenario</div>' +
+            '<div class="text-[var(--text-h)] font-bold text-xl mb-4">' + ex.label + '</div>' +
+            '<div class="text-[var(--text)] text-sm mb-2">Breakdown</div>' +
+            '<div class="text-[var(--text-h)] font-semibold mb-4">' + ex.breakdown + '</div>' +
+            '<div class="text-[var(--text)] text-sm mb-2">Total</div>' +
+            '<div class="text-[var(--text-h)] font-bold text-2xl">' + ex.total + '</div>';
+       }
+      document.querySelectorAll('.example-tab').forEach(function(tab) {
+        var i = parseInt(tab.getAttribute('data-example'));
+        if (i === idx) {
+          tab.className = 'example-tab px-4 py-2 rounded-full text-sm font-semibold transition bg-[var(--text-h)] text-[var(--bg)]';
+         } else {
+          tab.className = 'example-tab px-4 py-2 rounded-full text-sm font-semibold transition bg-[var(--section-medium)] text-[var(--text)] hover:text-[var(--text-h)]';
+         }
+       });
+      }
+
+     document.querySelectorAll('.example-tab').forEach(function(tab) {
+       tab.addEventListener('click', function() {
+         renderExample(parseInt(tab.getAttribute('data-example')));
+        });
+     });
+
+     renderExample(0);
+    })();
+</script>

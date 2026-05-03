@@ -1,0 +1,97 @@
+  ---
+import Layout from '../../layouts/Layout.astro';
+import PageBanner from '../../components/PageBanner.astro';
+---
+
+<Layout>
+       <div class="bg-[var(--bg)]">
+          <PageBanner title="About Us" />
+
+          <div class="container mx-auto max-w-6xl py-10">
+
+           <section class="mb-16">
+             <h2 class="font-bold uppercase tracking-wide mb-6 border-b border-[var(--border)] pb-4">Our Mission</h2>
+             <p class="text-[var(--text)] text-lg leading-relaxed">
+             Our mission at First Stop Tool &amp; Equipment Rentals Ltd. is to give you the best service possible — driven by dedicated owners and a staff that genuinely cares. We make sure every customer feels comfortable and confident using our equipment on the job site, and we're always just a phone call away. Contractors and handymen can count on us for honest advice to help get the job done efficiently.
+             </p>
+           </section>
+
+           <section class="mb-16">
+              <div class="bg-[var(--section-medium)] rounded-[10px] p-8 border border-[var(--border)] flex flex-col lg:flex-row items-center gap-8">
+                 <img
+                 src="https://firststoprentals.com/wp-content/uploads/2022/06/IMG_9817-2-1024x887.jpg"
+                 alt="Neill Earl"
+                 class="rounded-[10px] w-148 h-148 object-cover shrink-0"
+                 />
+                 <div>
+                    <h2 class="text-sm text-[var(--text)] uppercase tracking-wide mb-1">Neill Earl</h2>
+                    <h3 class="font-bold mb-2">Owner &amp; President</h3>
+                    <p class="text-[var(--text)]">
+                    It's amazing how a great team is what makes a business truly successful. Asking the right questions upfront means every customer walks away with the right tool for the job — and the confidence to use it. That's the experience First Stop is built on.
+                    </p>
+                 </div>
+              </div>
+           </section>
+
+           <section class="mb-16">
+              <h2 class="font-bold uppercase tracking-wide mb-6">Meet the Team</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                 <div class="bg-[var(--section-medium)] rounded-[10px] p-6 border border-[var(--border)] text-center">
+                    <img
+                    src="https://firststoprentals.com/wp-content/uploads/2022/06/IMG_9723-2-1-1024x978.jpg"
+                    alt="Pierre Prud'Homme"
+                    class="rounded-[10px] mb-4 w-full object-cover aspect-square"
+                    />
+                    <h3 class="font-bold">Pierre Prud'Homme</h3>
+                      <p class="text-[var(--text)] text-md">Head Service Technician</p>
+                 </div>
+                 <div class="bg-[var(--section-medium)] rounded-[10px] p-6 border border-[var(--border)] text-center">
+                    <img
+                    src="https://firststoprentals.com/wp-content/uploads/2022/06/IMG_9719-2-768x724.jpg"
+                    alt="Aaron Greengrass"
+                    class="rounded-[10px] mb-4 w-full object-cover aspect-square"
+                    />
+                    <h3 class="font-bold">Aaron Greengrass</h3>
+                      <p class="text-[var(--text)] text-md">Apprentice Service Technician</p>
+                 </div>
+              </div>
+           </section>
+
+           <section class="mb-12">
+              <div class="bg-[var(--section-medium)] rounded-[10px] p-8 border border-[var(--border)] text-center">
+                  <h2 class="font-bold uppercase tracking-wide mb-4">Questions?</h2>
+                  <p class="text-[var(--text)] text-lg mb-4">
+                 Give us a call if you have any inquiries regarding our tools and equipment!
+                  </p>
+                  <a
+                  href="tel:6132584152"
+                  class="inline-block bg-[var(--accent)] text-[var(--text-h)] px-8 py-3 rounded-[10px] font-semibold text-lg hover:bg-red-700 transition"
+                  >
+                   613-258-4152
+                  </a>
+              </div>
+           </section>
+
+           <section class="text-center pb-4">
+               <h2 class="font-bold uppercase tracking-wide mb-6">Follow Us</h2>
+              <div class="flex justify-center gap-8">
+                 <a
+                 href="https://www.instagram.com/firststoprentals"
+                 target="_blank"
+                 rel="noreferrer"
+                 class="text-[var(--text)] hover:text-[var(--text-h)] transition text-xl font-medium"
+                 >
+                  Instagram
+                 </a>
+                 <a
+                 href="https://www.facebook.com/firststoprentals"
+                 target="_blank"
+                 rel="noreferrer"
+                 class="text-[var(--text)] hover:text-[var(--text-h)] transition text-xl font-medium"
+                 >
+                  Facebook</a>
+                 </div>
+           </section>
+         </div>
+       </div>
+</Layout>

@@ -1,0 +1,332 @@
+  ---
+import Layout from '../../layouts/Layout.astro';
+import PageBanner from '../../components/PageBanner.astro';
+
+const FAQ_DATA = [
+     {
+     category: '4-Stroke Engines',
+     questions: [
+        { question: 'How do I start a 4-stroke engine?', answer: 'Ignition switch ON, turn fuel on (black valve to right), close choke (grey valve to left) and turn throttle to half way. Engage pull cord - pull quickly at 2 feet maximum pull cord length. Once started, open choke and let idle for 1-2 minutes.' },
+        { question: 'Can I run a 4-stroke engine below full throttle?', answer: 'Engines are designed to run at full throttle only. Anything less will cause lugging, overheating and clutch damage. Because engines are designed to run at 3600RPM, if you are running it at 1500-2000RPM, the clutch springs will not be fully engaged causing the clutch to slip and overheat - this will also cause the belt to melt.' },
+        { question: 'How do I shut off a 4-stroke engine?', answer: 'Let idle for a minute, turn ignition off and be sure to shut the fuel off.' },
+      ],
+    },
+     {
+     category: '2-Stroke Engines',
+     questions: [
+         { question: 'How do I start a 2-stroke engine?', answer: 'Turn ignition switch on, push decompression in, pull choke out, lock throttle and pull to start. Once engine fires, push choke and decompression in, and pull one last time. Please note: failing to follow any one of the above instructions will cause the engine to flood.' },
+         { question: 'Why does my 2-stroke engine flood?', answer: 'All it takes is putting it on its side to refuel, and sometimes just by leaving it in the sun for nothing more than 2 minutes! The heat of the sun expands the gas and pressures it, therefore filling the engine. Another cause of flooding is by pulling the pull cord too slowly.' },
+         { question: 'How do I unflood a 2-stroke engine?', answer: 'One person must squeeze the trigger to full throttle, and another person must pull the engine over 15-20x to clear it. Once the engine starts, you must run it at full throttle until the blue smoke has fully escaped the engine.' },
+      ],
+    },
+     {
+     category: '4-Cycle Engines',
+     questions: [
+         { question: 'Why does this machine only run for a couple minutes then die?', answer: 'Check the following: Is the ignition switch on? What position is the fuel valve in? (Left or Right?) What position is the choke in? What position is the throttle in? Is the engine loaded down? (Belt engaged)' },
+      ],
+    },
+     {
+     category: 'Compactors',
+     questions: [
+         { question: 'What size compactor do I need for my project?', answer: 'It\'s important to know how thick the layers of compaction are to determine the appropriate size of compactor you need. It is not based on the dimensions, but the weight that determines this: 100lb = 1"-2" layers, 160lb = 2"-3" layers, 200lb = 3"-4" layers, 400lb = 6"-8" layers, 800lb = 8"-12" layers, 1100lb = 12"-18" layers, 1300lb = 12"-24" layers.' },
+      ],
+    },
+     {
+     category: 'Compressors',
+     questions: [
+         { question: 'Why won\'t my compressor shut off after plugging it in with the hose attached?', answer: 'The valves in the air nailer will not seal until there is enough pressure built up. You must disconnect the hose.' },
+      ],
+    },
+     {
+     category: 'Jack Hammers & Chippers',
+     questions: [
+         { question: 'Which tool should I use - jackhammer or chipper?', answer: 'Use a chipper for walls. Use a jackhammer for floors.' },
+         { question: 'Why are the bits dulling so quickly?', answer: 'You must only use the jack hammers and chippers at a 30 degree angle. If you\'re using it at a 90 degree angle, the bits will dull almost immediately.' },
+      ],
+    },
+     {
+     category: 'Ceramic Tile / Target Saws',
+     questions: [
+         { question: 'The wet saw was cutting fine for about 15 minutes and then it stopped. The motor is warm too. Why?', answer: 'This means you\'ve been forcing the tool and it has overheated. Let the motor cool down, then press the reset button.' },
+      ],
+    },
+     {
+     category: 'Hardwood Nailers / Staplers',
+     questions: [
+         { question: 'Why are the nails/staples jamming in the gun?', answer: 'There are two possible reasons: 1) You\'re hitting directly into the screws of the subfloor. 2) You\'re using the wrong gauge of staples/nails. (The Chinese staples are a finer gauge and if used in our staplers/nailers, this will jam and cause damage)' },
+      ],
+    },
+     {
+     category: 'Carpet Cleaner',
+     questions: [
+         { question: 'Why is there no soap spraying into the carpet?', answer: 'Check that the switches are in the right position (carpet=floor, upholstery). Disconnect and reconnect the quick coupler to ensure proper coupling.' },
+      ],
+    },
+     {
+     category: 'Floor Sanders',
+     questions: [
+         { question: 'What type of floor sander do I need?', answer: 'Ideally, for a freshly laid floor you would need an orbital sander. If you\'re taking lots of varnish or paint off and/or your floors are uneven, you would need a drum sander with the edger.' },
+      ],
+    },
+     {
+     category: 'Circuit Breakers',
+     questions: [
+         { question: 'Why are my circuit breakers tripping?', answer: '3 possible explanations: 1) You\'re using an extension cord which is not advised as this can severely damage the equipment. 2) You have both machines running on the same circuit. 3) There is bad wiring in the house.' },
+      ],
+    },
+     {
+     category: 'Generators',
+     questions: [
+         { question: 'What size generator do I need?', answer: 'A good rule of thumb is 3x your load because it takes 3x as much wattage to get it going than it does to keep it running. Example: 1500W electric chipper would need a 4500W generator just to start it. Formula: Wattage = Voltage X Amperage' },
+         { question: 'Can I run an air compressor on a generator?', answer: 'WARNING: AN AIR COMPRESSOR SHOULD NEVER BE RUN ON A GENERATOR. When an air compressor starts, it will draw for a split second about 40 amps. The generator will not be able to handle this, but will keep the air compressor running at a slower RPM (running on start winding). This will burn out the compressor AND generator.' },
+      ],
+    },
+     {
+     category: 'Heaters',
+     questions: [
+         { question: 'Are there any requirements to rent a heater?', answer: 'It is mandatory to have a certificate of training for any propane heaters.' },
+      ],
+    },
+     {
+     category: 'Brush Cutters',
+     questions: [
+         { question: 'What type of blade do I need?', answer: 'If you have tall grass you\'d like to cut down, a triangle blade is recommended. However, if you have thick stocky brush up to 1 inch in diameter, the skill saw blade is recommended.' },
+      ],
+    },
+     {
+     category: 'Lawn Aerators',
+     questions: [
+         { question: 'The belt came off, what do I do?', answer: 'You are going the length ways of the ditch and are on an angle while running the machine. Try going up and down a shallow ditch instead if possible.' },
+         { question: 'Which should I use first - aerator, dethatcher, or lawn comb?', answer: 'Dethatch, then aerate.' },
+      ],
+    },
+     {
+     category: 'Lawn Mower',
+     questions: [
+         { question: 'How tall can my grass be to use a lawn mower?', answer: '6-8 inches but only cut half the width of the mower for less stalling. If it\'s any taller, you need a brush cutter with a triangle blade.' },
+      ],
+    },
+     {
+     category: 'Log Splitter',
+     questions: [
+         { question: 'Why won\'t the engine start?', answer: 'It\'s possible the log splitter is under load. Put the lever in neutral and it will start.' },
+      ],
+    },
+     {
+     category: 'Post Hole Augers',
+     questions: [
+         { question: 'What type of auger will I need?', answer: 'It depends on how many holes you have to dig as we have 4 different types: 1) Manual augers - appropriate if you\'re only digging a few holes. 2) 2-Man Auger - appropriate if you\'re doing up to 10 holes, but this really depends on how much labour you want to put into this, and depending on your partners\' strength on handling a two man auger. The torque on this machine is very strong when you hit a rock or root. If the operators are not feeling confident, then we suggest: 3) 1-man hydraulic auger - appropriate if you have 10-20 holes. Less labour in comparison to the manual and 2-man augers. 4) MT52 Auger Attachment - appropriate for 20+ holes. Perfect for someone who wants to do the least amount of labour with it and to get the job done quickly.' },
+      ],
+    },
+     {
+     category: 'Sod Cutter',
+     questions: [
+         { question: 'Are there any procedures I need to take prior to renting?', answer: 'Please soak your lawn beforehand. If your lawn is dry, it will be hard for the blade to cut through the sod and will damage the machine. Also, to avoid damaging, stop to investigate if you hit a rock and/or root before continuing.' },
+      ],
+    },
+     {
+     category: 'Stump Grinder',
+     questions: [
+         { question: 'Are there any procedures I need to take prior to renting?', answer: 'Please dig 6 inches around your stumps and hose down the dirt from the stumps the night before. The stump grinder is just like a chain saw; you never want to be cutting through dirt with either machines.' },
+      ],
+    },
+     {
+     category: 'Tillers (Rotto)',
+     questions: [
+         { question: 'What type of tiller do I need?', answer: 'We have 3 types of tillers: 1) Mini-Tyne Tiller - meant for a raised garden bed. 2) Front-Tyne Tiller - meant for an already existing garden that just needs to be tossed up for the season. 3) Mid-Tyne Tiller - meant for creating gardens.' },
+      ],
+    },
+     {
+     category: 'Trencher',
+     questions: [
+         { question: 'What do I do if the belt starts to squeal?', answer: 'Stop Immediately. Shut the engine off. You have a rock jammed in the chain. Investigate and remove rock or root from chain before proceeding.' },
+      ],
+    },
+     {
+     category: 'Plumbing',
+     questions: [
+         { question: 'Why must I unplug the pipe thawer before pressurizing?', answer: 'When the water comes out, the element will be exposed and will burn out every time.' },
+      ],
+    },
+     {
+     category: 'Pressure Washers',
+     questions: [
+         { question: 'Why can\'t I pull the engine over? After the 3rd pull it won\'t pull anymore.', answer: 'The engine is hydraulically locked. This happens because the trigger from the wand was not pulled and not releasing the pressure.' },
+         { question: 'Why must I bleed the air out before turning it on?', answer: 'If this procedure is not followed, this will overheat the pump and overheat the motor. This is a very crucial step to follow.' },
+      ],
+    },
+     {
+     category: 'Pumps',
+     questions: [
+         { question: 'Why must pumps be primed prior to use?', answer: 'Not priming the pump will overheat the seals with no water.' },
+      ],
+    },
+     {
+     category: 'Rental Rates & Delivery',
+     questions: [
+         { question: 'How are rental rates calculated?', answer: 'Our rates are calculated based on the duration of your rental. See our <a href="/rental-rates" class="text-[var(--text-h)] underline">rental rates page</a> for full details including hourly, overnight, and weekend specials.' },
+         { question: 'What are the delivery rates?', answer: 'Small equipment delivery starts at $60 up to 15km, and large equipment/scaffold starts at $85. Both charge $1.60 per extra km. See our <a href="/delivery" class="text-[var(--text-h)] underline">delivery page</a> for approximate rates to nearby towns.' },
+         { question: 'What days and times do you deliver?', answer: 'Deliveries are available Monday through Friday, 8am to 5pm.' },
+         { question: 'Are there hourly rental options?', answer: 'Yes! Most items are available for 3-hour (55% of day rate), 4-hour (65%), or 5-hour (75%) rentals during business hours. Over 5 hours is billed as a full day. More details on our <a href="/rental-rates" class="text-[var(--text-h)] underline">rates page</a>.' },
+         { question: 'What does an overnight rental cost?', answer: 'Pickup at 4pm Mon-Thu, return by 9am the next morning, is charged at the 5-hour rate (75% of day rate). Overnight rentals do not count toward monthly discounts. See our <a href="/rental-rates" class="text-[var(--text-h)] underline">rates page</a> for more.' },
+      ],
+    },
+];
+
+const totalAnswerCount = FAQ_DATA.reduce((sum, cat) => sum + cat.questions.length, 0);
+---
+
+<Layout>
+      <div class="bg-[var(--bg)]">
+          <PageBanner title="Frequently Asked Questions" subtitle="Finding quick answers to keep your projects moving." />
+
+       <div class="container mx-auto max-w-6xl py-10">
+
+          <div class="max-w-2xl mx-auto mb-10">
+             <div class="bg-[var(--section-dark)] rounded-[10px] p-5 border border-[var(--border)]">
+                <label htmlFor="faq-search" class="block text-sm text-[var(--text)] mb-2">Search FAQ</label>
+               <input
+               id="faq-search"
+               type="text"
+               class="w-full p-3 bg-[var(--section-medium)] border border-[var(--border)] rounded-[10px] text-[var(--text)] placeholder-gray-500 focus:border-[var(--text-h)] focus:outline-none transition"
+               placeholder={`Search ${totalAnswerCount}+ answers...`}
+               />
+               <div id="faq-search-results" class="mt-3 text-sm text-[var(--text)] hidden"></div>
+             </div>
+           </div>
+
+           <div class="max-w-3xl mx-auto" id="faq-categories">
+              {FAQ_DATA.map((category, catIndex) => {
+             return (
+                 <div class="mb-4" data-category={catIndex}>
+                    <button
+                    class="faq-category-toggle w-full flex justify-between items-center p-4 bg-[var(--section-medium)] border border-[var(--border)] rounded-[10px] text-left"
+                    data-cat-idx={catIndex}
+                    >
+                      <div class="flex items-center gap-3">
+                        <span class="text-[var(--text-h)] font-bold text-lg uppercase tracking-wide">{category.category}</span>
+                        <span class="text-[var(--text)] text-xs">{category.questions.length} question{category.questions.length !== 1 ? 's' : ''}</span>
+                        </div>
+                        <span class="text-[var(--text-h)] text-2xl shrink-0 faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-category-content overflow-hidden transition-all duration-300 hidden">
+                      <div class="mt-2">
+                        <div class="mb-8">
+                          <h2 class="font-bold uppercase tracking-wide mb-4 border-b border-[var(--border)] pb-2">{category.category}</h2>
+                          <div class="space-y-2">
+                            {category.questions.map((faq, qIndex) => {
+                            return (
+                              <div class="border border-[var(--border)] rounded-[10px] bg-[var(--section-medium)] overflow-hidden">
+                                <button
+                                class="faq-question-toggle w-full flex justify-between items-center p-4 text-left hover:bg-[var(--section-dark)] transition"
+                                data-q-idx={qIndex}
+                                >
+                                  <span class="text-[var(--text-h)] font-medium pr-4">{faq.question}</span>
+                                  <span class="text-[var(--text-h)] text-2xl shrink-0 faq-q-icon">+</span>
+                                </button>
+                                <div class="faq-question-content overflow-hidden transition-all duration-300 hidden">
+                                  <div class="px-4 pb-4 text-[var(--text)] border-t border-[var(--border)] pt-6" setHTML={faq.answer}></div>
+                                </div>
+                              </div>
+                             );
+                             })}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
+               );
+             })}
+           </div>
+         </div>
+       </div>
+</Layout>
+
+<script is:inline>
+   (function() {
+    var toggleBtns = document.querySelectorAll('.faq-category-toggle');
+    var qBtns = document.querySelectorAll('.faq-question-toggle');
+    var searchInput = document.getElementById('faq-search');
+    var resultsEl = document.getElementById('faq-search-results');
+
+    toggleBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var content = btn.nextElementSibling;
+        var icon = btn.querySelector('.faq-toggle-icon');
+        if (content.classList.contains('hidden')) {
+          content.classList.remove('hidden');
+          icon.textContent = '\u2212';
+         } else {
+           content.classList.add('hidden');
+           icon.textContent = '+';
+         }
+        });
+     });
+
+    qBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var content = btn.nextElementSibling;
+        var icon = btn.querySelector('.faq-q-icon');
+        if (content.classList.contains('hidden')) {
+          content.classList.remove('hidden');
+          icon.textContent = '\u2212';
+         } else {
+           content.classList.add('hidden');
+           icon.textContent = '+';
+         }
+        });
+     });
+
+    if (searchInput && resultsEl) {
+      searchInput.addEventListener('input', function() {
+        var q = searchInput.value.toLowerCase().trim();
+        var allCategories = document.querySelectorAll('#faq-categories > div');
+        var totalMatches = 0;
+
+        allCategories.forEach(function(catEl) {
+           var qBtns = catEl.querySelectorAll('.faq-question-toggle');
+           var catContent = catEl.querySelector('.faq-category-content');
+           var catIcon = catEl.querySelector('.faq-toggle-icon');
+           var hasVisible = false;
+
+           qBtns.forEach(function(qBtn) {
+             var qContent = qBtn.nextElementSibling;
+             var qText = qBtn.querySelector('span').textContent.toLowerCase();
+             var aText = qContent.textContent.toLowerCase();
+             if (!q || qText.includes(q) || aText.includes(q)) {
+               qContent.classList.remove('hidden');
+               hasVisible = true;
+               totalMatches++;
+              } else {
+               qContent.classList.add('hidden');
+              }
+            });
+
+           if (q) {
+             if (hasVisible) {
+               catEl.classList.remove('hidden');
+               if (catContent) { catContent.classList.remove('hidden'); }
+               if (catIcon) catIcon.textContent = '\u2212';
+              } else {
+               catEl.classList.add('hidden');
+              }
+            } else {
+             catEl.classList.remove('hidden');
+            }
+         });
+
+         if (q) {
+           resultsEl.innerHTML = totalMatches + ' result' + (totalMatches !== 1 ? 's' : '') +
+              ' <button id="faq-clear-search" class="ml-3 text-[var(--text)] hover:text-[var(--text-h)] transition">&#10005; Clear</button>';
+           resultsEl.classList.remove('hidden');
+           document.getElementById('faq-clear-search')?.addEventListener('click', function() {
+             searchInput.value = '';
+             searchInput.dispatchEvent(new Event('input'));
+            });
+          } else {
+           resultsEl.classList.add('hidden');
+          }
+        });
+     }
+    })();
+</script>

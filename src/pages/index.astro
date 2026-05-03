@@ -1,17 +1,203 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+    <div class="bg-[var(--bg)]">
+       <div class="py-8 flex justify-center bg-white">
+          <img src="/cropped-First-Stop-Logo-2-1024x253.jpg" alt="First Stop Rentals" class="w-auto" />
+       </div>
+       <section
+        class="relative min-h-[430px] flex items-start rounded-[10px] overflow-hidden mx-0 mb-8"
+        style="background-image: linear-gradient(135deg, rgba(5,0,0,0.9), rgba(5,0,0,0.9)), url('https://firststoprentals.com/wp-content/uploads/2023/05/Copy-of-IMG_7706-scaled.jpg'); background-size: cover; background-position: center;"
+       >
+          <div class="container py-10 text-left">
+              <h1 class="font-bold mb-4 text-[var(--text-h)] pt-16">
+                THE RIGHT TOOL, READY WHEN YOU ARE.
+              </h1>
+             <p class="text-[var(--text-h)] text-lg max-w-2xl mb-16">
+                Over 300 tools and equipment for contractors and DIYers - from concrete saws to plate compactors. No big-box hassle. Just people who know their gear.
+             </p>
+
+             <div class="flex flex-wrap gap-4 mb-8 mt-8">
+                <a
+                 href="/equipment"
+                 class="border-2 border-[var(--text-h)] text-[var(--text-h)] px-8 py-3 rounded-full  font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)] transition"
+                 >
+                 Browse Equipment
+                 </a>
+                <a
+                 href="/rental-rates"
+                 class="border-2 border-[var(--text-h)] text-[var(--text-h)] px-8 py-3 rounded-full  font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)] transition"
+                 >
+                 See rental rates
+                 </a>
+              </div>
+
+             <div class="flex flex-wrap gap-8 text-[var(--text-h)] mb-2 md:mb-0">
+                <div class="flex items-center gap-2">
+                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                       <circle cx="12" cy="12" r="10" />
+                       <path d="M9 12l2 2 4-4" />
+                    </svg>
+                    <span>Family run since 1994</span>
+                 </div>
+                 <div class="flex items-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9 12l2 2 4-4" />
+                     </svg>
+                      <span>Delivery available</span>
+                 </div>
+                 <div class="flex items-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9 12l2 2 4-4" />
+                     </svg>
+                      <span>Weekend Specials</span>
+                 </div>
+              </div>
+           </div>
+        </section>
+
+       <section class="container py-12 mx-auto mt-8">
+           <div class="bg-[var(--section-dark)] rounded-[10px] p-8 md:p-12 border border-[var(--border)]">
+              <div class="max-w-3xl">
+                <h2 class="font-bold mb-4 text-[var(--text-h)]">
+                    Now Offering Small Engine &amp; Tool Repair Services <span class="text-[var(--accent)]">(Contractors Only)</span>
+                </h2>
+                 <p class="text-[var(--text-h)] mb-8 pt-4">
+                   Are you a contractor with equipment that needs repair but don't have the time to deal with it? We've got you covered. Our small engine and tool repair services are available exclusively to contractors to help keep your equipment running and your jobs on schedule.
+                 </p>
+                 <p class="text-[var(--text-h)] pt-4">
+                   No way to get it to us? We offer convenient pick-up and drop-off services as well.
+                 </p>
+              </div>
+           </div>
+        </section>
+
+       <section class="mx-0 my-12">
+          <div class="bg-[var(--section-green)] rounded-[10px] p-8 md:p-12 text-center">
+                <h2 class="font-bold mb-4 text-[var(--text-h)]">
+                    Don't have a truck or trailer? We deliver.
+                </h2>
+             <a
+             href="/contact"
+             class="inline-block border-2 border-[var(--text-h)] text-[var(--text-h)] px-8 py-3 rounded-full text-sm font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)] transition mt-4"
+              >
+              Book a delivery
+              </a>
+          </div>
+       </section>
+
+       <section class="bg-[var(--section-dark)] rounded-[10px] p-8 md:p-12 my-8 mx-0">
+          <div class="container">
+             <h4 class="text-[var(--accent)] mb-2">PRICING</h4>
+               <h2 class="font-bold mb-4 text-[var(--text)]">Sample Rental Rates</h2>
+             <p class="text-[var(--text)] mb-6">
+                Rates shown are for common items. Optional 3,4 &amp; 5 hour rates are only applicable during business hours.
+             </p>
+
+             <hr class="border-[var(--border)] mb-6" />
+
+             <div class="overflow-x-auto">
+                <table class="w-full text-sm text-[var(--text)]">
+                   <thead>
+                      <tr class="border-b border-[var(--border)]">
+                         <th class="text-left py-3 px-4 text-[var(--text-h)] font-semibold">Item</th>
+                         <th class="text-left py-3 px-4 text-[var(--text-h)] font-semibold">Daily</th>
+                         <th class="text-left py-3 px-4 text-[var(--text-h)] font-semibold">Weekly</th>
+                         <th class="text-left py-3 px-4 text-[var(--text-h)] font-semibold">Monthly</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr class="border-b border-[var(--border)]">
+                         <td class="py-3 px-4 text-[var(--text-h)] font-medium">Pressure Washer</td>
+                         <td class="py-3 px-4">$60</td>
+                         <td class="py-3 px-4">$240</td>
+                         <td class="py-3 px-4">$720</td>
+                      </tr>
+                      <tr class="border-b border-[var(--border)]">
+                         <td class="py-3 px-4 text-[var(--text-h)] font-medium">Cement Mixer</td>
+                         <td class="py-3 px-4">$54</td>
+                         <td class="py-3 px-4">$54</td>
+                         <td class="py-3 px-4">$81</td>
+                      </tr>
+                      <tr class="border-b border-[var(--border)]">
+                         <td class="py-3 px-4 text-[var(--text-h)] font-medium">Floor Sander</td>
+                         <td class="py-3 px-4">$56</td>
+                         <td class="py-3 px-4">$56</td>
+                         <td class="py-3 px-4">$84</td>
+                      </tr>
+                      <tr class="border-b border-[var(--border)]">
+                         <td class="py-3 px-4 text-[var(--text-h)] font-medium">Plate Compactor</td>
+                         <td class="py-3 px-4">$60</td>
+                         <td class="py-3 px-4">$60</td>
+                         <td class="py-3 px-4">$90</td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <hr class="border-[var(--border)] my-6" />
+
+             <p class="text-sm text-[var(--text)]">
+                Prices subject to change. See <a href="/rental-rates" class="text-[var(--text-h)] underline">Rates for details</a>.
+             </p>
+          </div>
+       </section>
+
+       <section class="bg-[var(--section-medium)] rounded-[10px] p-8 md:p-12 my-8 mx-0">
+          <div class="container">
+             <h4 class="text-[var(--accent)] mb-2" style="line-height: 1.5">WHY US</h4>
+             <h2 class="text-3xl md:text-[3rem] font-bold mb-10 text-[var(--text)]">Not just a rental counter</h2>
+
+             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                   <h3 class="text-4xl font-bold text-[var(--accent)] mb-2">30+</h3>
+                   <h4 class="text-[var(--text-h)] font-semibold text-base mb-2 normal-case normal-tracking">Years in Kemptville</h4>
+                   <p class="text-[var(--text)] text-sm">Family-run since 1994. We know local conditions, local contractors, and local jobs.</p>
+                </div>
+                <div>
+                   <h3 class="text-4xl font-bold text-[var(--accent)] mb-2">300+</h3>
+                   <h4 class="text-[var(--text-h)] font-semibold text-base mb-2 normal-case normal-tracking">Items Available</h4>
+                   <p class="text-[var(--text)] text-sm">From a simple tile saw to a full skid steer — all maintained in-house.</p>
+                </div>
+                <div>
+                   <h3 class="text-4xl font-bold text-[var(--accent)] mb-2">Available</h3>
+                   <h4 class="text-[var(--text-h)] font-semibold text-base mb-2 normal-case normal-tracking">Ready to Rent</h4>
+                   <p class="text-[var(--text)] text-sm">Equipment is serviced and ready to go</p>
+                </div>
+                <div>
+                   <h3 class="text-4xl font-bold text-[var(--accent)] mb-2">Free</h3>
+                   <h4 class="text-[var(--text-h)] font-semibold text-base mb-2 normal-case normal-tracking">Job site advice</h4>
+                   <p class="text-[var(--text)] text-sm">We ask questions to make sure you leave with the right tool, not just any tool.</p>
+                </div>
+             </div>
+          </div>
+       </section>
+
+       <section class="bg-[var(--section-dark)] rounded-[10px] p-8 md:p-12 mt-8 mx-0 text-center border-t border-[var(--border)]">
+          <div class="container">
+                <h2 class="font-bold mb-4 uppercase text-[var(--text-h)]">
+                    Ready to get to work?
+                </h2>
+
+             <div class="flex flex-wrap justify-center gap-4">
+                <a
+                 href="tel:6132584152"
+                 class="bg-[var(--accent)] text-[var(--text-h)] px-8 py-3 rounded-full text-sm font-semibold hover:bg-red-700 transition"
+                 >
+                 Call 613-258-4152
+                 </a>
+                <a
+                 href="/contact"
+                 class="border-2 border-[var(--text-h)] text-[var(--text-h)] px-8 py-3 rounded-full text-sm font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)] transition"
+                 >
+                 Contact Us
+                 </a>
+              </div>
+           </div>
+        </section>
+      </div>
+</Layout>

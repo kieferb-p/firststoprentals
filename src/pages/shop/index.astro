@@ -1,0 +1,78 @@
+  ---
+import Layout from '../../layouts/Layout.astro';
+import PageBanner from '../../components/PageBanner.astro';
+---
+
+<Layout>
+         <div class="bg-[var(--bg)]">
+            <PageBanner title="Shop" />
+
+         <div class="container mx-auto max-w-6xl py-10">
+            <!-- Stihl -->
+            <section class="mb-12">
+            <h2 class="font-bold uppercase tracking-wide mb-6 flex items-center gap-3">
+               <img src="https://firststoprentals.com/wp-content/uploads/2021/01/stihl-logo.jpg" alt="Stihl" class="h-8" />
+              Stihl Products
+            </h2>
+               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                    <img src="https://firststoprentals.com/wp-content/uploads/2021/01/stihlchsaw2.jpg" alt="Stihl chainsaw" class="w-full h-48 object-cover" />
+                  </div>
+                  <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                    <img src="https://firststoprentals.com/wp-content/uploads/2021/01/stihlchsaw.jpg" alt="Stihl chainsaw" class="w-full h-48 object-cover" />
+                  </div>
+                  <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                    <img src="https://firststoprentals.com/wp-content/uploads/2021/01/stihlmaint.png" alt="Stihl maintenance" class="w-full h-48 object-cover" />
+                  </div>
+                  <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                    <img src="https://firststoprentals.com/wp-content/uploads/2021/01/stihlshredvac.jpg" alt="Stihl Shredder" class="w-full h-48 object-cover" />
+                  </div>
+                </div>
+                <p class="text-[var(--text)] mt-6 leading-relaxed">With a large variety of stock between units and accessories, we are happy to provide what you need! If it's something we don't have on hand, we're happy to place an order for you. We value communication with our clients to ensure the best service possible.</p>
+              </section>
+
+              <!-- Echo -->
+              <section class="mb-12">
+                  <h2 class="font-bold uppercase tracking-wide mb-6">Echo Products</h2>
+                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                      <img src="https://firststoprentals.com/wp-content/uploads/2021/01/echochsaw.jpeg" alt="Echo chainsaw" class="w-full h-48 object-cover" />
+                    </div>
+                    <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                      <img src="https://firststoprentals.com/wp-content/uploads/2021/01/echoch.jpeg" alt="Echo chainsaw" class="w-full h-48 object-cover" />
+                    </div>
+                    <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                      <img src="https://firststoprentals.com/wp-content/uploads/2021/01/echopole.jpg" alt="Echo pole saw" class="w-full h-48 object-cover" />
+                    </div>
+                    <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                      <img src="https://firststoprentals.com/wp-content/uploads/2021/01/echowhipsnip.jpg" alt="Echo Whip Snip" class="w-full h-48 object-cover" />
+                    </div>
+                    <div class="rounded-[10px] overflow-hidden bg-[var(--section-medium)] border border-[var(--border)]">
+                      <img src="https://firststoprentals.com/wp-content/uploads/2021/01/echoblower.jpg" alt="Echo blower" class="w-full h-48 object-cover" />
+                    </div>
+                  </div>
+                  <p class="text-[var(--text)] mt-6 leading-relaxed">From BCS to Bearcat, Exmark, NGK, Oregon, Shindaiwa to Z Turf. Echo offers so many products you wouldn't believe are available! We have what you need.</p>
+              </section>
+
+              <!-- Aspen Fuel -->
+              <section class="mb-12">
+                  <div class="bg-[var(--section-medium)] rounded-[10px] p-8 border border-[var(--border)]">
+                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                        <div>
+                          <img
+                          src="https://firststoprentals.com/wp-content/uploads/2021/01/IMG_4783-scaled.jpg"
+                          alt="Aspen Fuel"
+                          class="rounded-[10px] w-full h-64 object-cover"
+                          />
+                        </div>
+                        <div>
+                           <h2 class="font-bold uppercase tracking-wide mb-4">Aspen Fuel</h2>
+                          <p class="text-[var(--text)] leading-relaxed mb-3">Aspen fuel has been our go-to for all our 2-stroke and 4-stroke equipment for years. It's a high-quality, low-emission fuel that keeps our machines running smoothly and efficiently. We highly recommend it to our customers for optimal performance and longevity of their equipment.</p>
+                          <p class="text-[var(--text)] leading-relaxed pt-3">It's got a shelf life of <strong class="text-[var(--text-h)]">5 years</strong>, and a life in an engine for <strong class="text-[var(--text-h)]">2 years</strong>. Comes in 1L or 5L of 2-stroke pre-mixed (50:1) and 4-stroke.</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+</Layout>

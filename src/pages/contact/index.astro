@@ -1,0 +1,123 @@
+  ---
+import Layout from '../../layouts/Layout.astro';
+import PageBanner from '../../components/PageBanner.astro';
+---
+
+<Layout>
+       <div class="bg-[var(--bg)]">
+          <PageBanner title="Contact Us" subtitle="Need equipment or have a question? We are only a call or an email away." />
+
+       <div class="container mx-auto max-w-6xl py-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <div class="bg-[var(--section-medium)] rounded-[10px] p-8 border border-[var(--border)]">
+                 <h2 class="font-bold uppercase tracking-wide mb-6">Send Us a Message</h2>
+
+                 <form id="contact-form">
+                  <div class="mb-5">
+                    <label htmlFor="name" class="block text-sm text-[var(--text)] mb-2">Full Name</label>
+                    <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="w-full p-3 bg-[var(--section-dark)] border border-[var(--border)] rounded-[10px] text-[var(--text-h)] focus:border-[var(--text-h)] focus:outline-none transition"
+                    required
+                    />
+                  </div>
+
+                  <div class="mb-5">
+                    <label htmlFor="message" class="block text-sm text-[var(--text)] mb-2">How can we help?</label>
+                    <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    class="w-full p-3 bg-[var(--section-dark)] border border-[var(--border)] rounded-[10px] text-[var(--text-h)] focus:border-[var(--text-h)] focus:outline-none transition resize-none"
+                    required
+                    ></textarea>
+                  </div>
+
+                  <div id="form-status"></div>
+
+                  <button
+                  type="submit"
+                  class="w-full bg-[var(--text-h)] text-[var(--bg)] py-3 px-8 rounded-[10px] text-lg font-semibold hover:bg-gray-200 transition"
+                  >
+                  Send Message
+                  </button>
+                </form>
+              </div>
+
+              <div class="space-y-6">
+                 <div class="bg-[var(--section-medium)] rounded-[10px] p-8 border border-[var(--border)]">
+                  <h2 class="font-bold uppercase tracking-wide mb-6">Reach Us Directly</h2>
+                  <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                      <span role="img" aria-label="phone">&#128222;</span>
+                      <div>
+                        <p class="font-semibold text-[var(--text-h)]">Phone</p>
+                        <a href="tel:6132584152" class="text-[var(--text-h)] hover:underline transition">613-258-4152</a>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                      <span role="img" aria-label="email">&#9993;</span>
+                      <div>
+                        <p class="font-semibold text-[var(--text-h)]">Email</p>
+                        <a href="mailto:frontdesk.firststoprentals@gmail.com" class="text-[var(--text-h)] hover:underline transition">frontdesk.firststoprentals@gmail.com</a>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                      <span role="img" aria-label="map pin">&#128205;</span>
+                      <div>
+                        <p class="font-semibold text-[var(--text-h)]">Address</p>
+                        <a
+                        href="https://maps.app.goo.gl/KesBQtqkfExTa8Sh6"
+                        target="_blank"
+                        rel="noreferrer"
+                        class="text-[var(--text-h)] transition"
+                         >
+                         5881 Ottawa Regional Rd 19, Kemptville, ON K0G 1J0
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                 <div class="bg-[var(--section-medium)] rounded-[10px] p-8 border border-[var(--border)]">
+                  <h2 class="font-bold uppercase tracking-wide mb-4">Visit Us</h2>
+                  <div class="rounded-[10px] overflow-hidden">
+                    <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2819.6636251208274!2d-75.6405525233691!3d45.031753471070154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccdea9bd7693915%3A0x53622adb7f74e855!2sFirst%20Stop%20Tool%20%26%20Equipment%20Rentals%20Ltd!5e0!3m2!1sen!2sca"
+                    width="100%"
+                    height="300"
+                    style="border: 0"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="First Stop Rentals Location"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </div>
+       </div>
+</Layout>
+
+<script is:inline>
+   document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+     e.preventDefault();
+     const name = document.getElementById('name')?.value || '';
+     const message = document.getElementById('message')?.value || '';
+     const subject = encodeURIComponent('Contact from ' + name);
+     const body = encodeURIComponent(message);
+      window.location.href = 'mailto:frontdesk.firststoprentals@gmail.com?subject=' + subject + '&body=' + body;
+     var statusEl = document.getElementById('form-status');
+     if (statusEl) {
+       statusEl.className = 'bg-[var(--accent-bg)] text-[var(--accent)] border border-[var(--accent-border)] p-3 rounded-[10px] text-center';
+       statusEl.innerHTML = 'Your email client has been opened. Hit send and we will be in touch shortly!';
+     }
+     var nameInput = document.getElementById('name');
+     var msgInput = document.getElementById('message');
+     if (nameInput) nameInput.value = '';
+     if (msgInput) msgInput.value = '';
+    });
+</script>

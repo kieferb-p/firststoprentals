@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageBanner from '../../components/PageBanner.astro';
+import { EquipmentSearch as EquipmentSearchClient } from '../../components/EquipmentSearchClient.tsx';
+import { EquipmentCard } from '../../components/EquipmentCard.tsx';
+import equipment from '../../data/rentals.json';
+import type { EquipmentItem } from '../../types/equipment';
+
+const equipmentData = equipment as EquipmentItem[];
+const totalItems = equipmentData.length;
+
+const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+     'Automotive': 'Lifting, drilling, and automotive tools.',
+     'Carpenter Tools': 'Saws, levels, fasteners, and finishing tools.',
+     'Compaction': 'Plate compactors and tampers for all fill depths.',
+     'Compressors': 'Air compressors, sandblasters, and chipper systems.',
+     'Concrete Equipment': 'Saws, mixers, vibrators, and finishing tools.',
+     'Fastening': 'Nailers, staplers, and screw guns.',
+     'Flooring': 'Sanders, edgers, tile tools, and cleaning equipment.',
+     'Generators/Welders': 'Portable power generation from 2kW to 9kW.',
+     'Heaters': 'Electric, propane, and diesel heaters for every job.',
+     'Lawn & Garden': 'Aerators, tillers, brush cutters, and mowers.',
+     'Loaders': 'Skid steers, mini excavators, attachments, and buckets.',
+     'Material Handling': 'Lifts, jacks, boom lifts, and dollies.',
+     'Paint Equipment': 'Ladders, sprayers, scaffolding, and steamer.',
+     'Plumbing': 'Pipe cutters, threaders, thawers, and snakes.',
+     'Pressure Washers': 'Electric and gas washers from 1500 to 3600 PSI.',
+     'Saws': 'Chain, chop, mitre, reciprocating, and concrete saws.',
+     'Scaffolding': 'Sections, ends, braces, planks, and accessories.',
+     'Water Pumps': 'Diaphragm, trash, and submersible pumps.',
+};
+
+interface CategoryEntry {
+   category: string;
+   items: EquipmentItem[];
+}
+
+const categories = (() => {
+   const catMap = new Map<string, EquipmentItem[]>();
+   equipmentData.forEach((item) => {
+     if (!catMap.has(item.category)) catMap.set(item.category, []);
+      catMap.get(item.category)!.push(item);
+     });
+   return [...catMap.entries()].sort((a, b) => a[0].localeCompare(b[0])).map(([category, items]) => ({ category, items }));
+})();
+
+---
+
+<Layout>
+         <div class="bg-[var(--bg)]">
+            <PageBanner title="Equipment List" subtitle={`Over ${totalItems} professional tools maintained and ready for work.`} />
+
+           <div class="container mx-auto max-w-6xl py-10 sm:py-14">
+              <!-- React client component handles interactive search/filter, hides static content when active -->
+              <EquipmentSearchClient client:load equipmentData={equipmentData} />
+
+              <!-- Static category grid - hidden when React filter is active -->
+              <div id="static-category-grid">
+                 <div class="sm:hidden space-y-3">
+                    {categories.map((cat) => (
+                       <a href={`/equipment?q=${cat.category.replace(/\s+/g, '+')}`}
+                        class="w-full flex justify-between items-center p-5 bg-[var(--section-medium)] border border-[var(--border)] rounded-[10px] text-left hover:border-[var(--accent)] transition">
+                         <span class="text-[var(--text-h)] font-bold uppercase tracking-wide">{cat.category}</span>
+                         <span class="text-[var(--text)] text-sm sm:text-base">{cat.items.length} item{cat.items.length !== 1 ? 's' : ''}</span>
+                        </a>
+                      ))}
+                 </div>
+                 <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5 hidden sm:grid">
+                    {categories.map((cat) => (
+                       <a href={`/equipment?q=${cat.category.replace(/\s+/g, '+')}`}
+                         class="border border-[var(--border)] rounded-[10px] overflow-hidden bg-[var(--section-medium)] hover:border-[var(--text-h)] transition duration-300 cursor-pointer">
+                         <div class="p-5">
+                           <h3 class="font-bold uppercase tracking-wide">{cat.category}</h3>
+                           <p class="text-[var(--text)] text-sm mt-1">{CATEGORY_DESCRIPTIONS[cat.category] || `${cat.items.length} tools available`}</p>
+                           <div class="text-[var(--text)] text-xs mt-3">{cat.items.length} item{cat.items.length !== 1 ? 's' : ''}</div>
+                         </div>
+                         </a>
+                      ))}
+                 </div>
+              </div>
+           </div>
+         </div>
+</Layout>

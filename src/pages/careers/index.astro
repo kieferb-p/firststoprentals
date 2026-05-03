@@ -1,0 +1,30 @@
+  ---
+import Layout from '../../layouts/Layout.astro';
+import PageBanner from '../../components/PageBanner.astro';
+---
+
+<Layout>
+       <div class="bg-[var(--bg)] min-h-screen">
+          <PageBanner title="Careers" />
+
+       <div class="container mx-auto max-w-6xl py-16">
+          <div class="max-w-3xl mx-auto space-y-12">
+              <section>
+              <h2 class="font-bold mb-4">Working at First Stop</h2>
+              <div class="text-[var(--text)] space-y-4">
+                  <p>If you're honest, hardworking, and take pride in a job well done, you'll fit right in. We value reliability, a positive attitude, and a willingness to learn.</p>
+                  <p>We're not currently hiring, but things change fast. If an opportunity opens up, it'll be posted below.</p>
+              </div>
+              </section>
+
+             <section class="bg-[var(--section-medium)] p-6">
+               <h2 class="font-bold mb-8">Open Positions</h2>
+                 <p class="text-[var(--text)] mb-6">We don't have any openings right now. But if you think you'd be a great fit for our team, we'd still love to hear from you.</p>
+
+                 <div class="bg-[var(--section-medium)] rounded-[10px] border border-[var(--border)] divide-y divide-[var(--border)]">
+                 </div>
+             </section>
+           </div>
+       </div>
+     </div>
+</Layout>
