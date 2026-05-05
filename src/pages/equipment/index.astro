@@ -38,9 +38,12 @@ interface CategoryEntry {
 const categories = (() => {
    const catMap = new Map<string, EquipmentItem[]>();
    equipmentData.forEach((item) => {
-     if (!catMap.has(item.category)) catMap.set(item.category, []);
-      catMap.get(item.category)!.push(item);
+     const cats = [item.category, ...(item.additionalCategories ?? [])];
+     cats.forEach((cat) => {
+       if (!catMap.has(cat)) catMap.set(cat, []);
+       catMap.get(cat)!.push(item);
      });
+   });
    return [...catMap.entries()].sort((a, b) => a[0].localeCompare(b[0])).map(([category, items]) => ({ category, items }));
 })();
 
@@ -48,7 +51,7 @@ const categories = (() => {
 
 <Layout>
          <div class="bg-[var(--bg)]">
-            <PageBanner title="Equipment List" subtitle={`Over ${totalItems} professional tools maintained and ready for work.`} />
+            <PageBanner title="Equipment List" subtitle={`Professional tools maintained and ready for work.`} />
 
            <div class="container mx-auto max-w-6xl py-10 sm:py-14">
               <!-- React client component handles interactive search/filter, hides static content when active -->
@@ -78,6 +81,10 @@ const categories = (() => {
                       ))}
                  </div>
               </div>
+           </div>
+
+           <div class="border-t border-[var(--border)] mt-10 pt-6 pb-4 text-center">
+             <p class="text-xs text-[var(--text)] opacity-50">All images are the property of their respective owners. First Stop Tool &amp; Equipment Rentals makes no claim of copyright ownership over any product images displayed on this site.</p>
            </div>
          </div>
 </Layout>

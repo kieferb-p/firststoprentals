@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { EquipmentDetailPage } from '../../components/EquipmentDetailPage.tsx';
+---
+
+<Layout title="Equipment — First Stop Rentals">
+  <div class="bg-[var(--bg)] pb-14">
+    <EquipmentDetailPage client:only="react" />
+  </div>
+</Layout>
