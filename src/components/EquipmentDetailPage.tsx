@@ -134,6 +134,9 @@ export function EquipmentDetailPage() {
               ))}
             </div>
 
+            {/* Price disclaimer */}
+            <p className="text-xs text-[var(--text)] opacity-60">Prices are subject to change. HST not included.</p>
+
             {/* Add-ons */}
             {item.attachments && item.attachments.length > 0 && (
               <div>

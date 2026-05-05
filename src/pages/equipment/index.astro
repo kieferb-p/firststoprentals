@@ -57,6 +57,9 @@ const categories = (() => {
               <!-- React client component handles interactive search/filter, hides static content when active -->
               <EquipmentSearchClient client:load equipmentData={equipmentData} />
 
+              <!-- Price disclaimer -->
+              <p class="text-xs text-[var(--text)] opacity-60 mb-6">Prices are subject to change. HST not included.</p>
+
               <!-- Static category grid - hidden when React filter is active -->
               <div id="static-category-grid">
                  <div class="sm:hidden space-y-3">
@@ -84,7 +87,7 @@ const categories = (() => {
            </div>
 
            <div class="border-t border-[var(--border)] mt-10 pt-6 pb-4 text-center">
-             <p class="text-xs text-[var(--text)] opacity-50">All images are the property of their respective owners. First Stop Tool &amp; Equipment Rentals makes no claim of copyright ownership over any product images displayed on this site.</p>
+             <p class="text-xs text-[var(--text)] opacity-50">All images are the property of their respective owners. First Stop Tool &amp; Equipment Rentals Ltd. makes no claim of copyright ownership over any product images displayed on this site.</p>
            </div>
          </div>
 </Layout>
