@@ -9,5 +9,8 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	"routes": [
+		{ "pattern": "firststoprentals.ca", "custom_domain": true }
+	]
 }
