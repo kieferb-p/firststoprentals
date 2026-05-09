@@ -1,0 +1,21 @@
+{
+	"compatibility_date": "2026-05-01",
+	"compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
+	"name": "firststoprentals",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"kv_namespaces": [
+		{ "binding": "SESSION", "id": "0c5a80adb86648b9a8116bc9fc849a1b" }
+	],
+	"routes": [
+		{ "pattern": "firststoprentals.com", "custom_domain": true },
+		{ "pattern": "www.firststoprentals.com", "custom_domain": true },
+		{ "pattern": "dev.firststoprentals.com", "custom_domain": true }
+	]
+}
