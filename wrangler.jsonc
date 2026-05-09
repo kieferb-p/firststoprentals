@@ -11,6 +11,6 @@
 		"enabled": true
 	},
 	"routes": [
-		{ "pattern": "firststoprentals.ca", "custom_domain": true }
+		{ "pattern": "firststoprentals.com", "custom_domain": true }
 	]
 }
