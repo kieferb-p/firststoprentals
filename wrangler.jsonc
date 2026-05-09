@@ -1,7 +1,7 @@
 {
 	"compatibility_date": "2026-05-01",
 	"compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
-	"name": "firststoprentals-dev",
+	"name": "firststoprentals",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
 		"directory": "./dist",
@@ -12,6 +12,7 @@
 	},
 	"routes": [
 		{ "pattern": "firststoprentals.com", "custom_domain": true },
-		{ "pattern": "www.firststoprentals.com", "custom_domain": true }
+		{ "pattern": "www.firststoprentals.com", "custom_domain": true },
+		{ "pattern": "dev.firststoprentals.com", "custom_domain": true }
 	]
 }
