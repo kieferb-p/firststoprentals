@@ -10,6 +10,9 @@
 	"observability": {
 		"enabled": true
 	},
+	"kv_namespaces": [
+		{ "binding": "SESSION", "id": "0c5a80adb86648b9a8116bc9fc849a1b" }
+	],
 	"routes": [
 		{ "pattern": "firststoprentals.com", "custom_domain": true },
 		{ "pattern": "www.firststoprentals.com", "custom_domain": true },
