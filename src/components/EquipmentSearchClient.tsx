@@ -166,7 +166,7 @@ export function EquipmentSearch({ equipmentData }: Props) {
             {selectedCategory && (
               <button
                 onClick={() => setSelectedCategory('')}
-                className="bg-[var(--section-medium)] text-[var(--text)] px-4 py-2 rounded-full hover:bg-white hover:text-[var(--bg)] transition"
+                className="bg-[var(--section-medium)] text-[var(--text)] px-4 py-2 rounded-full hover:bg-[var(--text-h)] hover:text-[var(--bg)] transition"
               >
                 <>&#10005; {selectedCategory}</>
               </button>
@@ -174,7 +174,7 @@ export function EquipmentSearch({ equipmentData }: Props) {
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm('')}
-                className="bg-[var(--section-medium)] text-[var(--text)] px-4 py-2 rounded-full hover:bg-white hover:text-[var(--bg)] transition"
+                className="bg-[var(--section-medium)] text-[var(--text)] px-4 py-2 rounded-full hover:bg-[var(--text-h)] hover:text-[var(--bg)] transition"
               >
                 <>&#10005; Clear search</>
               </button>
@@ -222,7 +222,7 @@ export function EquipmentSearch({ equipmentData }: Props) {
                   setSearchTerm('');
                   setSelectedCategory('');
                 }}
-                className="bg-[var(--text-h)] text-[var(--bg)] px-6 py-3 rounded-full hover:bg-gray-200 transition text-base"
+                className="bg-[var(--text-h)] text-[var(--bg)] px-6 py-3 rounded-full hover:opacity-90 transition text-base"
               >
                 Clear all filters
               </button>

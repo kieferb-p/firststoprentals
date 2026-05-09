@@ -110,7 +110,7 @@ export function EquipmentDetailPage() {
                     onClick={() => setDuration(d)}
                     className={`flex-1 py-3 rounded-[8px] text-base font-semibold transition border ${
                       duration === d
-                        ? 'bg-[var(--accent)] border-[var(--accent)] text-white'
+                        ? 'bg-[var(--accent)] border-[var(--accent)] text-[var(--text-on-color)]'
                         : 'bg-[var(--section-dark)] border-[var(--border)] text-[var(--text)] hover:border-[var(--text-h)]'
                     }`}
                   >

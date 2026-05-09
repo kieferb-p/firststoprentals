@@ -20,7 +20,7 @@ const isEquipment = currentPath.startsWith('/equipment');
 ---
 
 <div class={`relative top-0 z-50 bg-[var(--bg)] opacity-98 ${!isEquipment ? 'sticky top-0' : ''}`}>
-   <div class="bg-[var(--bg)] text-white text-center p-0 m-0 text-sm font-semibold">
+   <div class="bg-[var(--bg)] text-[var(--text-h)] text-center p-0 m-0 text-sm font-semibold">
      <a href="tel:6132584152" class="hover:opacity-90 transition">
        613-258-4152 | Call to book now!
      </a>
@@ -34,9 +34,9 @@ const isEquipment = currentPath.startsWith('/equipment');
              alt="First Stop Rentals Logo"
              class="h-10 md:h-20 w-auto"
            />
-           <div class="text-white">
+           <div class="text-[var(--text-h)]">
              <div class="text-xl font-bold leading-tight">First Stop Tool &amp; Equipment Rentals Ltd.</div>
-             <div class="text-xs text-gray-100">Kemptville - Ottawa - Smiths Falls area</div>
+             <div class="text-xs text-[var(--text)]">Kemptville - Ottawa - Smiths Falls area</div>
            </div>
          </a>
 
@@ -46,7 +46,7 @@ const isEquipment = currentPath.startsWith('/equipment');
             return (
                <a
                 href={item.to}
-                class={`relative pb-1 text-sm font-medium transition after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white after:transition-all ${isActive ? 'text-white after:opacity-100' : ' text-gray-100 hover:text-white after:opacity-0 hover:after:opacity-100'}`}
+                class={`relative pb-1 text-sm font-medium transition after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[var(--text-h)] after:transition-all ${isActive ? 'text-[var(--text-h)] after:opacity-100' : ' text-[var(--text)] hover:text-[var(--text-h)] after:opacity-0 hover:after:opacity-100'}`}
                >
                  {item.label}
                </a>
@@ -54,15 +54,29 @@ const isEquipment = currentPath.startsWith('/equipment');
            })}
            <a
             href="/contact"
-            class="ml-4 border-2 border-white text-white px-5 py-2 rounded-full text-sm font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)] transition"
+            class="ml-4 border-2 border-[var(--text-h)] text-[var(--text-h)] px-5 py-2 rounded-full text-sm font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)] transition"
            >
             Contact Us
            </a>
+           <button
+            id="theme-toggle"
+            type="button"
+            class="theme-toggle text-[var(--text-h)] p-2 rounded-full hover:text-[var(--accent)] transition cursor-pointer"
+            aria-label="Toggle theme"
+           >
+             <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+             </svg>
+             <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <circle cx="12" cy="12" r="4" />
+               <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+             </svg>
+           </button>
          </nav>
 
          <button
           id="mobile-menu-toggle"
-          class="xl:hidden text-white p-2"
+          class="xl:hidden text-[var(--text-h)] p-2"
           aria-label="Toggle menu"
          >
            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -76,10 +90,24 @@ const isEquipment = currentPath.startsWith('/equipment');
 
      <div id="mobile-menu" class="lg:hidden fixed inset-0 top-0 z-50 bg-[var(--bg)]/99 hidden">
        <div class="container py-6 flex flex-col gap-4">
-         <div class="flex justify-end mb-4">
+         <div class="flex justify-end mb-4 gap-2">
+           <button
+            id="theme-toggle-mobile"
+            type="button"
+            class="theme-toggle text-[var(--text-h)] p-2 rounded-full hover:text-[var(--accent)] transition cursor-pointer"
+            aria-label="Toggle theme"
+           >
+             <svg class="icon-moon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+             </svg>
+             <svg class="icon-sun" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <circle cx="12" cy="12" r="4" />
+               <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+             </svg>
+           </button>
            <button
             id="mobile-menu-close"
-            class="text-white p-2"
+            class="text-[var(--text-h)] p-2"
             aria-label="Close menu"
            >
              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -91,7 +119,7 @@ const isEquipment = currentPath.startsWith('/equipment');
          {navItems.map((item) => (
            <a
             href={item.to}
-            class="text-white text-lg font-medium py-2 px-6 hover:text-gray-100 transition mobile-nav-link"
+            class="text-[var(--text-h)] text-lg font-medium py-2 px-6 hover:text-[var(--text)] transition mobile-nav-link"
            >
              {item.label}
            </a>
@@ -99,7 +127,7 @@ const isEquipment = currentPath.startsWith('/equipment');
          <div class="mt-4 w-full">
            <a
             href="/contact"
-            class="block w-full text-center border-2 border-white text-white px-5 py-3 rounded-full text-sm font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)] transition mobile-nav-link"
+            class="block w-full text-center border-2 border-[var(--text-h)] text-[var(--text-h)] px-5 py-3 rounded-full text-sm font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)] transition mobile-nav-link"
            >
             Contact Us
            </a>
@@ -110,17 +138,27 @@ const isEquipment = currentPath.startsWith('/equipment');
 </div>
 
 <script is:inline>
-  const toggle = document.getElementById('mobile-menu-toggle');
-  const closeBtn = document.getElementById('mobile-menu-close');
-  const menu = document.getElementById('mobile-menu');
-  const navLinks = document.querySelectorAll('.mobile-nav-link');
+  (function () {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    const menu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
 
-  function openMenu() { menu.classList.remove('hidden'); }
-  function closeMenu() { menu.classList.add('hidden'); }
+    function closeMenu() { menu.classList.add('hidden'); }
 
-  toggle?.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-   });
-  closeBtn?.addEventListener('click', closeMenu);
-  navLinks.forEach(link => link.addEventListener('click', closeMenu));
+    toggle?.addEventListener('click', () => menu.classList.toggle('hidden'));
+    closeBtn?.addEventListener('click', closeMenu);
+    navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('theme', theme); } catch (_) {}
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      applyTheme(current === 'light' ? 'dark' : 'light');
+    }
+    document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
+  })();
 </script>
