@@ -49,6 +49,7 @@ function EquipmentCard({ item }: { item: EquipmentItem }) {
           <img
             src={item.imageUrl}
             alt={item.name}
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
             onError={() => setImgFailed(true)}
           />
